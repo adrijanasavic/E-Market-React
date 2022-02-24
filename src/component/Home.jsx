@@ -1,5 +1,6 @@
 import React from 'react'
 import bg from '../assets/bg.jpg'
+import Products from './Products';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
                   
               </div>
           </div>
+          <Products/>
      </div>
   )
 }
