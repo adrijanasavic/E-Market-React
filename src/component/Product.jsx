@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { addCart, deleteCart } from '../redux/action'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
@@ -9,12 +11,19 @@ export default function Product() {
     const [product, setProduct] = useState([])
     const [loading, setLoading] = useState(false)
 
+    const dispatch = useDispatch()
+
+    const addProduct = (product) => {
+        dispatch(addCart(product))
+    }
+
     useEffect(() => {
         const getProduct = async () => {
             setLoading(true)
             const response = await fetch(`https://fakestoreapi.com/products/${id}`)
             setProduct(await response.json())
             setLoading(false)
+            console.log(response)
         }
         getProduct()
     }, [])
@@ -32,15 +41,14 @@ export default function Product() {
                     <Skeleton height={60} width={200} />
                     <Skeleton height={80} />
 
-                    <div class="row">
-                        <div class="col-2">
+                    <div className="row">
+                        <div className="col-2">
                             <Skeleton height={40} width={110} />
                         </div>
-                        <div class="col-10">
+                        <div className="col-10">
                             <Skeleton height={40} width={110} style={{ marginLeft: 3 }} />
                         </div>
                     </div>
-
                 </div>
 
             </>
@@ -66,7 +74,7 @@ export default function Product() {
                         $ {product.price}
                     </h3>
                     <p className="load">{product.description}</p>
-                    <button className="btn btn-outline-dark px-4 py-2">
+                    <button className="btn btn-outline-dark px-4 py-2" onClick={()=>addProduct(product)}>
                         Add to Cart
                     </button>
                     <Link to="/cart" className="btn btn-dark ms-2 px-3 py-2">
