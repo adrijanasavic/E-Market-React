@@ -6,7 +6,7 @@ export default function Navbar() {
       <div>
           <nav className="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
               <div className="container">
-                  <a className="navbar-brand fw-bold fs-4" href={{}}>LA COLLECTION</a>
+                  <Link to='/' className="navbar-brand fw-bold fs-4">LA COLLECTION</Link>
                   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span className="navbar-toggler-icon"></span>
                   </button>
@@ -16,25 +16,25 @@ export default function Navbar() {
                               <Link to='/' className="nav-link active" aria-current="page" >Home</Link>
                           </li>
                           <li className="nav-item">
-                              <Link to='/products' className="nav-link" >Products</Link>
+                              <Link to='/products' className="nav-link">Products</Link>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href={{}}>About</a>
+                              <Link to='/about'  className="nav-link">About</Link>
                           </li>
                           <li className="nav-item">
-                              <a className="nav-link" href={{}}>Contact</a>
+                              <Link to='/contact' className="nav-link">Contact</Link>
                           </li>
                       </ul>
-                      <div className="buutons">
-                          <a href={{}} className="btn btn-outline-dark">
+                      <div className="buttons">
+                          <Link to='/login'  className="btn btn-outline-dark">
                               <i className="fa fa-sign-in me-1"> Login</i>
-                          </a>
-                          <a href={{}} className="btn btn-outline-dark ms-2">
+                          </Link>
+                          <Link to='/register'  className="btn btn-outline-dark ms-2">
                               <i className="fa fa-user-plus me-2"> Register </i>
-                          </a>
-                          <a href={{}} className="btn btn-outline-dark ms-2">
-                              <i className="fa fa-shopping-cart me-1"> Crat(0)</i>
-                          </a>
+                          </Link>
+                          <Link to='/cart'  className="btn btn-outline-dark ms-2">
+                              <i className="fa fa-shopping-cart me-1"> Cart(0)</i>
+                          </Link>
                      </div>
                   </div>
               </div>
